@@ -28,5 +28,9 @@ public/images/logo/meda2.png
 public/images/logo/gm-logo.png
 public/images/logo/olympics.png
 
-# JSON di inventario (il sito usa public/js/data.js)
-public/data/
+# Credenziali admin (create al primo accesso su Aruba)
+public/admin/credentials.php
+
+# Temp write files
+public/data/*.tmp
+public/js/*.tmp

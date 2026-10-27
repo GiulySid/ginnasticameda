@@ -1,0 +1,42 @@
+[
+  {
+    "anno": 2025,
+    "voci": [
+      {
+        "voce": "Fondo dote famiglia",
+        "importo": "€ 990,00"
+      }
+    ]
+  },
+  {
+    "anno": 2024,
+    "voci": [
+      {
+        "voce": "5x1000",
+        "importo": "€ 368,55"
+      }
+    ]
+  },
+  {
+    "anno": 2023,
+    "voci": [
+      {
+        "voce": "5x1000",
+        "importo": "€ 381,31"
+      }
+    ]
+  },
+  {
+    "anno": 2022,
+    "voci": [
+      {
+        "voce": "5x1000",
+        "importo": "€ 396,65"
+      },
+      {
+        "voce": "Comune di Meda",
+        "importo": "€ 3.000"
+      }
+    ]
+  }
+]

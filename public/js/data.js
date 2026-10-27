@@ -1,92 +1,453 @@
 window.GM_DATA = {
-  corsi: [
-    { nome: "Psicomotricità (3-5) M/F", categoria: "Base", orari: { Mar: "16:30-17:30", Gio: "16:30-17:30" } },
-    { nome: "Corso Base M", categoria: "Base", orari: { Lun: "18:00-19:00", Mer: "18:00-19:00" } },
-    { nome: "Corso Base F", categoria: "Base", orari: { Mar: "18:00-19:00", Gio: "18:00-19:00" } },
-    { nome: "Corso Avanzato M", categoria: "Avanzato", orari: { Mar: "17:30-19:00", Gio: "17:30-19:00", Ven: "17:30-19:00", Sab: "14:30-16:00" } },
-    { nome: "Corso Avanzato F", categoria: "Avanzato", orari: { Lun: "17:30-19:00", Mer: "17:30-19:00", Ven: "17:30-19:00", Sab: "14:30-16:00" } },
-    { nome: "Agonistica Maschile Preagonistica", categoria: "Agonistica", orari: { Lun: "TBD", Mar: "TBD", Mer: "TBD", Ven: "TBD", Sab: "TBD" } },
-    { nome: "Agonistica Femminile Preagonistica", categoria: "Agonistica", orari: { Lun: "TBD", Mar: "TBD", Gio: "TBD", Ven: "TBD", Sab: "TBD" } },
-    { nome: "Acrobatica Trampolino", categoria: "Specialità", orari: { Mar: "20:15-21:45", Gio: "20:15-21:45" } },
-    { nome: "Calisthenics", categoria: "Specialità", orari: { Lun: "20:15-21:45" } },
-    { nome: "Mantenimento", categoria: "Specialità", orari: { Lun: "20:15-21:15" } },
-    { nome: "Freestyle Acrobatico", categoria: "Specialità", orari: { Ven: "20:15-21:45" } },
-  ],
-  giorni: ["Lun", "Mar", "Mer", "Gio", "Ven", "Sab"],
-  gaf: [
-    ["TONIATO NOEMI", "2015-09-12"],
-    ["LAVINIA SCAllA VICTORIA", "2014-11-02"],
-    ["BERETTA GIULIA", "2015-10-14"],
-    ["FERRARA ARIANNA", "2011-09-28"],
-    ["BORGONOVO MATILDE", "2012-06-30"],
-    ["GOMARESCHI OLGA", "2012-04-01"],
-    ["PETRUZZINO ARIANNA", "2006-03-11"],
-    ["MOCIOI LARISSA", "2008-12-13"],
-    ["ARIENTI TEODORA", "2015-09-13"],
-    ["SPREAFICO GRETA", "2014-03-16"],
-    ["SPREAFICO NICOLE", "2013-05-24"],
-    ["ACKON COMFORT", "2011-03-16"],
-    ["MORINI JUNA", "2014-10-11"],
-    ["PORTALUPPI GAIA", "2010-09-17"],
-    ["LONGONI CHIARA", "2010-09-05"],
-    ["MARTINA DIODATO", "2014-05-11"],
-    ["CERANA MATILDE", "2010-01-09"],
-    ["MARIA BURASCHI", "2014-06-12"],
-  ],
-  gam: [
-    ["FRANCESCO PICO SILVA", "2013-07-09"],
-    ["MARAMANI RICCARDO", "2006-04-04"],
-    ["GIANCARLO GALIMBERTI", "2014-01-19"],
-    ["MICHELE POZZI", "2015-08-01"],
-    ["PELLEGATTA RICCARDO GIULIO", "2007-08-01"],
-    ["FRIGERIO LUDOVICO", "2010-12-03"],
-    ["DONATIELLO ACHILLE", "2011-10-05"],
-    ["NICCOLO' SCIBILIA", "2010-12-25"],
-    ["ANDREA PUGLIESE", "2010-06-14"],
-    ["FUNARI LEONARDO", "2008-06-11"],
-    ["EDOARDO FUMAGALLI", "2015-04-14"],
-    ["THOMAS COGNETTO", "2015-05-23"],
-    ["GALIMBERTI LUCA", "2012-10-13"],
-    ["DE CAGNO TOMMASO", "2005-05-24"],
-    ["MARTORELLA LEONARDO", "2011-12-10"],
-  ],
-  gare: [
-    ["Individuale Campionato Individuale Gold Junior e Senior - GAM", "2023-10-28", "Mortara", "FGI"],
-    ["Squadre Campionato di Squadra allievi gold 2 - GAM", "2023-10-14", "Carate", "FGI"],
-    ["Squadre Campionato di Squadra allievi gold 2 - GAM REGIONALE", "2023-09-30", "Mortara", "FGI"],
-    ["Squadre Campionato di Squadra Allievi gold 3 - GAM", "2023-09-30", "Mortara", "FGI"],
-    ["Nazionale Squadre Campionato di Squadra allievi gold 2 - GAM", "2023-11-10", "Fermo", ""],
-    ["Individuale Campionato Individuale Gold Junior e Senior - GAM", "2023-10-07", "Mortara", "FGI"],
-    ["Squadre Campionato di Squadra Allievi gold 1 - GAM", "2023-10-14", "Carate", ""],
-    ["Individuale Campionato Individuale Silver LD - GAM", "2023-10-07", "Mortara", ""],
-    ["Squadre Campionati di Squadra Allieve gold 1 - GAF", "2023-09-24", "Arcore", ""],
-    ["Individuale Campionato Individuale Gold Junior e Senior - GAM", "2023-09-23", "Mortara", "FGI"],
-    ["Individuale Campionato Individuale Gold Junior e Senior - GAF", "2023-10-07", "Arcore", "FGI"],
-    ["Squadre Campionato di Squadra Allievi gold 1 - GAM", "2023-09-30", "Mortara", "FGI"],
-    ["Squadre Campionato di Squadra Allievi gold 3 - GAM", "2023-10-14", "Carate", "FGI"],
-    ["Nazionale Squadre Campionato di Squadra Allievi gold 1 - GAM", "2023-11-10", "Fermo", ""],
-    ["Nazionale Squadre Campionato di Squadra Allievi gold 3 - GAM", "2023-11-10", "Fermo", ""],
-    ["Nazionale Individuale Campionato Individuale Gold Junior e Senior - GAM", "2023-10-17", "Mortara", ""],
-    ["Individuale Campionato Individuale Gold Junior e Senior - GAF", "2023-10-28", "Arcore", ""],
-  ],
-  team: [
-    { nome: "Maurizio Allievi", ruolo: "Direttore Tecnico", img: "images/team/maurizio-allievi.jpg", group: "direttore" },
-    { nome: "Franco Giorgetti", ruolo: "Allenatore GAM", img: "images/team/franco-giorgetti.jpg", group: "gam" },
-    { nome: "Daniele Maj", ruolo: "Allenatore GAM", img: "images/team/daniele-maj.jpg", group: "gam" },
-    { nome: "Riccardo Avanzi", ruolo: "Allenatore GAM", img: "images/team/riccardo-avanzi.jpg", group: "gam" },
-    { nome: "Lino Spinella", ruolo: "Allenatore GAM", img: "images/team/lino-spinella.jpg", group: "gam" },
-    { nome: "Gabriella Beretta", ruolo: "Allenatrice GAF", img: "images/team/gabriella-beretta.jpg", group: "gaf" },
-    { nome: "Francesca Sala", ruolo: "Allenatrice GAF", img: "images/team/francesca-sala.jpg", group: "gaf" },
-    { nome: "Francesco Orsetti", ruolo: "Allenatore GAF", img: "images/team/francesco-orsetti.jpg", group: "gaf" },
-    { nome: "Giovanni Moscato", ruolo: "Allenatore GAF", img: "images/team/giovanni-moscato.jpg", group: "gaf" },
-    { nome: "Elisa Redaelli", ruolo: "Allenatrice GAF", img: "images/team/elisa-redaelli.jpg", group: "gaf" },
-  ],
-  pubblicazioni: [
-    { anno: 2025, voci: [["Fondo dote famiglia", "€ 990,00"]] },
-    { anno: 2024, voci: [["5x1000", "€ 368,55"]] },
-    { anno: 2023, voci: [["5x1000", "€ 381,31"]] },
-    { anno: 2022, voci: [["5x1000", "€ 396,65"], ["Comune di Meda", "€ 3.000"]] },
-  ],
+    "corsi": [
+        {
+            "nome": "Psicomotricità (3-5) M/F",
+            "categoria": "Base",
+            "orari": {
+                "Mar": "16:30-17:30",
+                "Gio": "16:30-17:30"
+            }
+        },
+        {
+            "nome": "Corso Base M",
+            "categoria": "Base",
+            "orari": {
+                "Lun": "18:00-19:00",
+                "Mer": "18:00-19:00"
+            }
+        },
+        {
+            "nome": "Corso Base F",
+            "categoria": "Base",
+            "orari": {
+                "Mar": "18:00-19:00",
+                "Gio": "18:00-19:00"
+            }
+        },
+        {
+            "nome": "Corso Avanzato M",
+            "categoria": "Avanzato",
+            "orari": {
+                "Mar": "17:30-19:00",
+                "Gio": "17:30-19:00",
+                "Ven": "17:30-19:00",
+                "Sab": "14:30-16:00"
+            }
+        },
+        {
+            "nome": "Corso Avanzato F",
+            "categoria": "Avanzato",
+            "orari": {
+                "Lun": "17:30-19:00",
+                "Mer": "17:30-19:00",
+                "Ven": "17:30-19:00",
+                "Sab": "14:30-16:00"
+            }
+        },
+        {
+            "nome": "Agonistica Maschile Preagonistica",
+            "categoria": "Agonistica",
+            "orari": {
+                "Lun": "TBD",
+                "Mar": "TBD",
+                "Mer": "TBD",
+                "Ven": "TBD",
+                "Sab": "TBD"
+            }
+        },
+        {
+            "nome": "Agonistica Femminile Preagonistica",
+            "categoria": "Agonistica",
+            "orari": {
+                "Lun": "TBD",
+                "Mar": "TBD",
+                "Gio": "TBD",
+                "Ven": "TBD",
+                "Sab": "TBD"
+            }
+        },
+        {
+            "nome": "Acrobatica Trampolino",
+            "categoria": "Specialità",
+            "orari": {
+                "Mar": "20:15-21:45",
+                "Gio": "20:15-21:45"
+            }
+        },
+        {
+            "nome": "Calisthenics",
+            "categoria": "Specialità",
+            "orari": {
+                "Lun": "20:15-21:45"
+            }
+        },
+        {
+            "nome": "Mantenimento",
+            "categoria": "Specialità",
+            "orari": {
+                "Lun": "20:15-21:15"
+            }
+        },
+        {
+            "nome": "Freestyle Acrobatico",
+            "categoria": "Specialità",
+            "orari": {
+                "Ven": "20:15-21:45"
+            }
+        }
+    ],
+    "giorni": [
+        "Lun",
+        "Mar",
+        "Mer",
+        "Gio",
+        "Ven",
+        "Sab"
+    ],
+    "gaf": [
+        [
+            "TONIATO NOEMI",
+            "2015-09-12"
+        ],
+        [
+            "LAVINIA SCAllA VICTORIA",
+            "2014-11-02"
+        ],
+        [
+            "BERETTA GIULIA",
+            "2015-10-14"
+        ],
+        [
+            "FERRARA ARIANNA",
+            "2011-09-28"
+        ],
+        [
+            "BORGONOVO MATILDE",
+            "2012-06-30"
+        ],
+        [
+            "GOMARESCHI OLGA",
+            "2012-04-01"
+        ],
+        [
+            "PETRUZZINO ARIANNA",
+            "2006-03-11"
+        ],
+        [
+            "MOCIOI LARISSA",
+            "2008-12-13"
+        ],
+        [
+            "ARIENTI TEODORA",
+            "2015-09-13"
+        ],
+        [
+            "SPREAFICO GRETA",
+            "2014-03-16"
+        ],
+        [
+            "SPREAFICO NICOLE",
+            "2013-05-24"
+        ],
+        [
+            "ACKON COMFORT",
+            "2011-03-16"
+        ],
+        [
+            "MORINI JUNA",
+            "2014-10-11"
+        ],
+        [
+            "PORTALUPPI GAIA",
+            "2010-09-17"
+        ],
+        [
+            "LONGONI CHIARA",
+            "2010-09-05"
+        ],
+        [
+            "MARTINA DIODATO",
+            "2014-05-11"
+        ],
+        [
+            "CERANA MATILDE",
+            "2010-01-09"
+        ],
+        [
+            "MARIA BURASCHI",
+            "2014-06-12"
+        ]
+    ],
+    "gam": [
+        [
+            "FRANCESCO PICO SILVA",
+            "2013-07-09"
+        ],
+        [
+            "MARAMANI RICCARDO",
+            "2006-04-04"
+        ],
+        [
+            "GIANCARLO GALIMBERTI",
+            "2014-01-19"
+        ],
+        [
+            "MICHELE POZZI",
+            "2015-08-01"
+        ],
+        [
+            "PELLEGATTA RICCARDO GIULIO",
+            "2007-08-01"
+        ],
+        [
+            "FRIGERIO LUDOVICO",
+            "2010-12-03"
+        ],
+        [
+            "DONATIELLO ACHILLE",
+            "2011-10-05"
+        ],
+        [
+            "NICCOLO' SCIBILIA",
+            "2010-12-25"
+        ],
+        [
+            "ANDREA PUGLIESE",
+            "2010-06-14"
+        ],
+        [
+            "FUNARI LEONARDO",
+            "2008-06-11"
+        ],
+        [
+            "EDOARDO FUMAGALLI",
+            "2015-04-14"
+        ],
+        [
+            "THOMAS COGNETTO",
+            "2015-05-23"
+        ],
+        [
+            "GALIMBERTI LUCA",
+            "2012-10-13"
+        ],
+        [
+            "DE CAGNO TOMMASO",
+            "2005-05-24"
+        ],
+        [
+            "MARTORELLA LEONARDO",
+            "2011-12-10"
+        ]
+    ],
+    "gare": [
+        [
+            "Individuale Campionato Individuale Gold Junior e Senior - GAM",
+            "2023-10-28",
+            "Mortara",
+            "FGI"
+        ],
+        [
+            "Squadre Campionato di Squadra allievi gold 2 - GAM",
+            "2023-10-14",
+            "Carate",
+            "FGI"
+        ],
+        [
+            "Squadre Campionato di Squadra allievi gold 2 - GAM REGIONALE",
+            "2023-09-30",
+            "Mortara",
+            "FGI"
+        ],
+        [
+            "Squadre Campionato di Squadra Allievi gold 3 - GAM",
+            "2023-09-30",
+            "Mortara",
+            "FGI"
+        ],
+        [
+            "Nazionale Squadre Campionato di Squadra allievi gold 2 - GAM",
+            "2023-11-10",
+            "Fermo",
+            ""
+        ],
+        [
+            "Individuale Campionato Individuale Gold Junior e Senior - GAM",
+            "2023-10-07",
+            "Mortara",
+            "FGI"
+        ],
+        [
+            "Squadre Campionato di Squadra Allievi gold 1 - GAM",
+            "2023-10-14",
+            "Carate",
+            ""
+        ],
+        [
+            "Individuale Campionato Individuale Silver LD - GAM",
+            "2023-10-07",
+            "Mortara",
+            ""
+        ],
+        [
+            "Squadre Campionati di Squadra Allieve gold 1 - GAF",
+            "2023-09-24",
+            "Arcore",
+            ""
+        ],
+        [
+            "Individuale Campionato Individuale Gold Junior e Senior - GAM",
+            "2023-09-23",
+            "Mortara",
+            "FGI"
+        ],
+        [
+            "Individuale Campionato Individuale Gold Junior e Senior - GAF",
+            "2023-10-07",
+            "Arcore",
+            "FGI"
+        ],
+        [
+            "Squadre Campionato di Squadra Allievi gold 1 - GAM",
+            "2023-09-30",
+            "Mortara",
+            "FGI"
+        ],
+        [
+            "Squadre Campionato di Squadra Allievi gold 3 - GAM",
+            "2023-10-14",
+            "Carate",
+            "FGI"
+        ],
+        [
+            "Nazionale Squadre Campionato di Squadra Allievi gold 1 - GAM",
+            "2023-11-10",
+            "Fermo",
+            ""
+        ],
+        [
+            "Nazionale Squadre Campionato di Squadra Allievi gold 3 - GAM",
+            "2023-11-10",
+            "Fermo",
+            ""
+        ],
+        [
+            "Nazionale Individuale Campionato Individuale Gold Junior e Senior - GAM",
+            "2023-10-17",
+            "Mortara",
+            ""
+        ],
+        [
+            "Individuale Campionato Individuale Gold Junior e Senior - GAF",
+            "2023-10-28",
+            "Arcore",
+            ""
+        ]
+    ],
+    "team": [
+        {
+            "nome": "Maurizio Allievi",
+            "ruolo": "Direttore Tecnico",
+            "img": "images/team/maurizio-allievi.jpg",
+            "group": "direttore"
+        },
+        {
+            "nome": "Franco Giorgetti",
+            "ruolo": "Allenatore GAM",
+            "img": "images/team/franco-giorgetti.jpg",
+            "group": "gam"
+        },
+        {
+            "nome": "Daniele Maj",
+            "ruolo": "Allenatore GAM",
+            "img": "images/team/daniele-maj.jpg",
+            "group": "gam"
+        },
+        {
+            "nome": "Riccardo Avanzi",
+            "ruolo": "Allenatore GAM",
+            "img": "images/team/riccardo-avanzi.jpg",
+            "group": "gam"
+        },
+        {
+            "nome": "Lino Spinella",
+            "ruolo": "Allenatore GAM",
+            "img": "images/team/lino-spinella.jpg",
+            "group": "gam"
+        },
+        {
+            "nome": "Gabriella Beretta",
+            "ruolo": "Allenatrice GAF",
+            "img": "images/team/gabriella-beretta.jpg",
+            "group": "gaf"
+        },
+        {
+            "nome": "Francesca Sala",
+            "ruolo": "Allenatrice GAF",
+            "img": "images/team/francesca-sala.jpg",
+            "group": "gaf"
+        },
+        {
+            "nome": "Francesco Orsetti",
+            "ruolo": "Allenatore GAF",
+            "img": "images/team/francesco-orsetti.jpg",
+            "group": "gaf"
+        },
+        {
+            "nome": "Giovanni Moscato",
+            "ruolo": "Allenatore GAF",
+            "img": "images/team/giovanni-moscato.jpg",
+            "group": "gaf"
+        },
+        {
+            "nome": "Elisa Redaelli",
+            "ruolo": "Allenatrice GAF",
+            "img": "images/team/elisa-redaelli.jpg",
+            "group": "gaf"
+        }
+    ],
+    "pubblicazioni": [
+        {
+            "anno": 2025,
+            "voci": [
+                [
+                    "Fondo dote famiglia",
+                    "€ 990,00"
+                ]
+            ]
+        },
+        {
+            "anno": 2024,
+            "voci": [
+                [
+                    "5x1000",
+                    "€ 368,55"
+                ]
+            ]
+        },
+        {
+            "anno": 2023,
+            "voci": [
+                [
+                    "5x1000",
+                    "€ 381,31"
+                ]
+            ]
+        },
+        {
+            "anno": 2022,
+            "voci": [
+                [
+                    "5x1000",
+                    "€ 396,65"
+                ],
+                [
+                    "Comune di Meda",
+                    "€ 3.000"
+                ]
+            ]
+        }
+    ]
 };
 
 window.GM_formatDate = (iso) => {

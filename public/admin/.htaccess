@@ -1,0 +1,10 @@
+# Blocca le credenziali se Apache le servisse per errore
+<Files "credentials.php">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order deny,allow
+    Deny from all
+  </IfModule>
+</Files>
