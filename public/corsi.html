@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Corsi | ASD Ginnastica Meda</title>
+    <link rel="icon" href="images/logo/logo-50.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="site-header"></header>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Corsi</h1>
+        <p>Orari dei corsi in palestra — Via Caduti Medesi 13, Meda.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="course-grid" id="corsi-list"></div>
+        <p class="course-note">
+          Per iscrizioni e moduli vai alla pagina <a href="contatti.html"><strong>Contatti</strong></a>.
+        </p>
+      </div>
+    </section>
+    <footer class="site-footer" id="site-footer"></footer>
+    <script src="js/data.js"></script>
+    <script src="js/site.js"></script>
+    <script>
+      document.getElementById("corsi-list").innerHTML = GM_DATA.corsi
+        .map((c) => {
+          const slots = GM_DATA.giorni
+            .filter((g) => c.orari[g])
+            .map(
+              (g) =>
+                `<li><span class="course-card__day">${g}</span><span class="course-card__time">${c.orari[g]}</span></li>`
+            )
+            .join("");
+          return `<article class="course-card">
+            <div class="course-card__top">
+              <span class="tag">${c.categoria}</span>
+              <h3 class="course-card__title">${c.nome}</h3>
+            </div>
+            <ul class="course-card__slots">${slots}</ul>
+          </article>`;
+        })
+        .join("");
+    </script>
+  </body>
+</html>

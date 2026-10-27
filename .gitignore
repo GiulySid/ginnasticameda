@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.log
+.vscode/
+.idea/
+
+# Export Wix e materiali di lavoro (non serviti dal sito)
+site files/
+liste dinamiche/
+_content/
+
+# Backup foto originali usati solo per i crop
+public/images/org/_full/
+
+# Varianti logo / asset di lavoro non referenziati nel sito
+public/images/logo/logo-50-2x.png
+public/images/logo/logo-50-hq.png
+public/images/logo/logo-mark-on-dark.png
+public/images/logo/logo-mark-white.svg
+public/images/logo/logo-mark.svg
+public/images/logo/logo-50.svg
+public/images/logo/meda2.png
+public/images/logo/gm-logo.png
+public/images/logo/olympics.png
+
+# JSON di inventario (il sito usa public/js/data.js)
+public/data/

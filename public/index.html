@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>A.S.D. Ginnastica Meda</title>
+    <meta name="description" content="Associazione sportiva dilettantistica di ginnastica artistica a Meda dal 1973. Centro Federale di Alta Specializzazione." />
+    <link rel="icon" href="images/logo/logo-50.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="site-header"></header>
+
+    <section class="hero">
+      <div class="hero__media">
+        <img src="images/hero/hero-10.jpg" alt="Palestra Ginnastica Meda" />
+      </div>
+      <div class="hero__shade"></div>
+      <div class="hero__content">
+        <picture>
+          <source srcset="images/logo/logo-original.avif" type="image/avif" />
+          <img class="hero__logo" src="images/logo/logo-50.png" alt="Logo Ginnastica Meda 50 anni" width="298" height="278" />
+        </picture>
+        <h1>Ginnastica <em>Meda</em></h1>
+        <p class="hero__lead">
+          Dal 1973 formiamo ginnasti e ginnaste capaci di confrontarsi ai massimi livelli, dalla base all'agonismo internazionale.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="corsi.html">Scopri i corsi</a>
+          <a class="btn btn--ghost" href="societa.html">Chi siamo</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split reveal">
+        <div>
+          <div class="section__eyebrow">Chi siamo</div>
+          <h2 class="section__title">Una casa per crescere nello sport</h2>
+          <p>
+            L'A.S.D. Ginnastica Meda è un'associazione sportiva senza fini di lucro, affiliata alla Federazione Ginnastica d'Italia,
+            attiva nella ginnastica artistica dal 1973. Alta specializzazione, agonismo di vertice e promozione della ginnastica di base
+            per bambini e ragazzi.
+          </p>
+          <a class="btn btn--navy" href="societa.html">Scopri di più</a>
+        </div>
+        <div class="media-frame">
+          <img src="images/hero/hero-1.jpg" alt="Attività in palestra" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container reveal">
+        <div class="section__eyebrow">Allenatori</div>
+        <h2 class="section__title">Staff tecnico</h2>
+        <p class="section__lead">Il cuore tecnico della società: direttore e allenatori GAM e GAF.</p>
+        <div class="staff-names" id="home-team"></div>
+        <p style="margin-top:1.5rem">
+          <a class="btn btn--outline" href="team.html">Tutto il team</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="quote-band">
+      <div class="container reveal">
+        <h2>An expert in anything was once a <span>beginner</span></h2>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split split--reverse reveal">
+        <div>
+          <div class="section__eyebrow">Lavora con noi</div>
+          <h2 class="section__title">Vuoi entrare nello staff?</h2>
+          <p>Cerchiamo allenatori e un coreografo per corsi base, Silver e Gold. Compila il modulo e raccontaci la tua disponibilità.</p>
+          <a class="btn btn--navy" href="lavora-con-noi.html">Candidati</a>
+        </div>
+        <div class="media-frame">
+          <img src="images/hero/hero-6.JPG" alt="Allenamento ginnastica artistica" />
+        </div>
+      </div>
+    </section>
+
+    <section class="sponsors">
+      <div class="container">
+        <div class="section__eyebrow">Partner</div>
+        <h2 class="section__title" style="font-size:2rem;margin-bottom:1.25rem">I nostri sponsor</h2>
+      </div>
+      <div class="sponsors__track" id="sponsors-track"></div>
+    </section>
+
+    <footer class="site-footer" id="site-footer"></footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/site.js"></script>
+    <script>
+      const wrap = document.getElementById("home-team");
+      wrap.innerHTML = GM_DATA.team
+        .map(
+          (p) => `<div class="staff-name">
+            <strong>${p.nome}</strong>
+            <span>${p.ruolo}</span>
+          </div>`
+        )
+        .join("");
+    </script>
+  </body>
+</html>

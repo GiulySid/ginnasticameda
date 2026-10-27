@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Team | ASD Ginnastica Meda</title>
+    <link rel="icon" href="images/logo/logo-50.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="site-header"></header>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Team</h1>
+        <p>Direttore tecnico e allenatori della società.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="section__eyebrow">Direttore tecnico</div>
+        <div class="people-grid" id="team-direttore" style="max-width:220px"></div>
+
+        <h3 class="group-label">Maschile - GAM</h3>
+        <div class="people-grid" id="team-gam"></div>
+
+        <h3 class="group-label">Femminile - GAF</h3>
+        <div class="people-grid" id="team-gaf"></div>
+
+        <p style="margin-top:2rem">
+          <a class="btn btn--outline" href="organigramma.html">Vedi organigramma completo</a>
+        </p>
+      </div>
+    </section>
+    <footer class="site-footer" id="site-footer"></footer>
+    <script src="js/data.js"></script>
+    <script src="js/site.js"></script>
+    <script>
+      function render(list, el) {
+        el.innerHTML = list
+          .map(
+            (p) => `<article class="person">
+              <img class="person__photo" src="${p.img}" alt="${p.nome}" loading="lazy" />
+              <h3 class="person__name">${p.nome}</h3>
+              <p class="person__role">${p.ruolo}</p>
+            </article>`
+          )
+          .join("");
+      }
+      render(GM_DATA.team.filter((p) => p.group === "direttore"), document.getElementById("team-direttore"));
+      render(GM_DATA.team.filter((p) => p.group === "gam"), document.getElementById("team-gam"));
+      render(GM_DATA.team.filter((p) => p.group === "gaf"), document.getElementById("team-gaf"));
+    </script>
+  </body>
+</html>

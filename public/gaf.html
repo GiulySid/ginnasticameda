@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GAF | ASD Ginnastica Meda</title>
+    <link rel="icon" href="images/logo/logo-50.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="site-header"></header>
+    <section class="page-hero">
+      <div class="container">
+        <h1>GAF</h1>
+        <p>Ginnastica Artistica Femminile - atlete agonistiche.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container reveal">
+        <div class="athlete-list" id="gaf-list"></div>
+      </div>
+    </section>
+    <footer class="site-footer" id="site-footer"></footer>
+    <script src="js/data.js"></script>
+    <script src="js/site.js"></script>
+    <script>
+      document.getElementById("gaf-list").innerHTML = [...GM_DATA.gaf]
+        .sort((a, b) => a[0].localeCompare(b[0], "it"))
+        .map(([n, d]) => `<article class="athlete"><strong>${n}</strong><span>${GM_formatDate(d)}</span></article>`)
+        .join("");
+    </script>
+  </body>
+</html>

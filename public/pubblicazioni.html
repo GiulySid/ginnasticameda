@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pubblicazioni ex L.124/2017 | ASD Ginnastica Meda</title>
+    <link rel="icon" href="images/logo/logo-50.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="site-header"></header>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Pubblicazioni</h1>
+        <p>Trasparenza ex L.124/2017 - contributi pubblici ricevuti.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container" id="pub-list"></div>
+    </section>
+    <footer class="site-footer" id="site-footer"></footer>
+    <script src="js/data.js"></script>
+    <script src="js/site.js"></script>
+    <script>
+      document.getElementById("pub-list").innerHTML = GM_DATA.pubblicazioni
+        .map(
+          (y) => `<article class="pub-year">
+            <h3>Anno ${y.anno}</h3>
+            <ul>${y.voci.map(([v, i]) => `<li><span class="pub-year__voce">${v}</span><span class="pub-year__importo">${i}</span></li>`).join("")}</ul>
+          </article>`
+        )
+        .join("");
+    </script>
+  </body>
+</html>

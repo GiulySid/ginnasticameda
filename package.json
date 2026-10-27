@@ -1,0 +1,10 @@
+{
+  "name": "ginnasticameda",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Sito statico A.S.D. Ginnastica Meda",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "start": "node scripts/serve.mjs"
+  }
+}

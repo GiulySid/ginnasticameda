@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Organigramma | ASD Ginnastica Meda</title>
+    <link rel="icon" href="images/logo/logo-50.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="site-header"></header>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Organigramma</h1>
+        <p>Dirigenza, staff e allenatori della società.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container" id="organigramma-root"></div>
+    </section>
+    <footer class="site-footer" id="site-footer"></footer>
+    <script src="js/site.js"></script>
+    <script>
+      const people = [
+        { group: "Dirigenza", nome: "Angelo Buraschi", ruolo: "Presidente", img: "images/org/angelo-buraschi.png" },
+        { group: "Dirigenza", nome: "Renato Amedeo", ruolo: "Vicepresidente", img: "images/org/renato-amedeo.jpg" },
+        { group: "Dirigenza", nome: "Fabio Minotti", ruolo: "Consigliere", img: "images/org/fabio-minotti.jpg" },
+        { group: "Dirigenza", nome: "Lorena Salvi", ruolo: "Consigliere", img: "images/org/lorena-salvi.jpg" },
+        { group: "Dirigenza", nome: "Annamaria Radice", ruolo: "Consigliere", img: "images/org/annamaria-radice.jpg" },
+        { group: "Dirigenza", nome: "Paolo Fedeli", ruolo: "Consigliere", img: "images/org/paolo-fedeli.jpg" },
+
+        { group: "Staff", nome: "Annamaria Radice", ruolo: "Segreteria", img: "images/org/annamaria-radice.jpg" },
+        { group: "Staff", nome: "Fabio Minotti", ruolo: "Responsabile comunicazione", img: "images/org/fabio-minotti.jpg" },
+        { group: "Staff", nome: "Giulia Vezzoli", ruolo: "Responsabile web", img: "images/org/giulia-vezzoli.jpg" },
+
+        { group: "Direzione tecnica", nome: "Maurizio Allievi", ruolo: "Direttore tecnico", img: "images/org/maurizio-allievi.jpg" },
+
+        { group: "Allenatori GAM", nome: "Franco Giorgetti", ruolo: "Allenatore GAM", img: "images/org/franco-giorgetti.jpg" },
+        { group: "Allenatori GAM", nome: "Daniele Maj", ruolo: "Allenatore GAM", img: "images/org/daniele-maj.jpg" },
+        { group: "Allenatori GAM", nome: "Riccardo Avanzi", ruolo: "Allenatore GAM", img: "images/org/riccardo-avanzi.jpg" },
+        { group: "Allenatori GAM", nome: "Lino Spinella", ruolo: "Allenatore GAM", img: "images/org/lino-spinella.jpg" },
+        { group: "Allenatori GAM", nome: "Lorenzo Masiero", ruolo: "Allenatore GAM", img: "images/org/lorenzo-masiero.jpg" },
+
+        { group: "Allenatori GAF", nome: "Lella Beretta", ruolo: "Allenatrice GAF", img: "images/org/lella-beretta.jpg" },
+        { group: "Allenatori GAF", nome: "Cristina Campagner", ruolo: "Allenatrice GAF", img: "images/org/cristina-campagner.jpg" },
+        { group: "Allenatori GAF", nome: "Francesca Sala", ruolo: "Allenatrice GAF", img: "images/org/francesca-sala.jpg" },
+        { group: "Allenatori GAF", nome: "Francesco Orsetti", ruolo: "Allenatore GAF", img: "images/org/francesco-orsetti.jpg" },
+        { group: "Allenatori GAF", nome: "Giovanni Moscato", ruolo: "Allenatore GAF", img: "images/org/giovanni-moscato.jpg" },
+        { group: "Allenatori GAF", nome: "Elisa Redaelli", ruolo: "Allenatrice GAF", img: "images/org/elisa-redaelli.jpg" },
+
+        { group: "Allenatori", nome: "Filippo Testi", ruolo: "Allenatore", img: "images/org/filippo-testi.jpg" },
+        { group: "Allenatori", nome: "Mattia Redaelli", ruolo: "Allenatore", img: "images/org/mattia-redaelli.jpg" },
+        { group: "Allenatori", nome: "Davide Beretta", ruolo: "Allenatore", img: "images/org/davide-beretta.jpg" },
+        { group: "Allenatori", nome: "Alessio D'Angelo", ruolo: "Allenatore", img: "images/org/alessio-dangelo.jpg" },
+        { group: "Allenatori", nome: "Laura Raini", ruolo: "Allenatrice", img: "images/org/laura-raini.jpg" },
+        { group: "Allenatori", nome: "Stefania Sinanaj", ruolo: "Allenatrice", img: "images/org/stefania-sinanaj.jpg" },
+        { group: "Allenatori", nome: "Alice Viana", ruolo: "Allenatrice", img: "images/org/alice-viana.jpg" },
+        { group: "Allenatori", nome: "Serena Arreghini", ruolo: "Allenatrice", img: "images/org/serena-arreghini.jpg" },
+        { group: "Allenatori", nome: "Siria Ostini", ruolo: "Allenatrice", img: "images/org/siria-ostini.jpg" },
+        { group: "Allenatori", nome: "Eleonora Trabattoni", ruolo: "Allenatrice", img: "images/org/eleonora-trabattoni.jpg" },
+        { group: "Allenatori", nome: "Sharon Pizzuto", ruolo: "Allenatrice", img: null },
+      ];
+
+      const groups = [...new Set(people.map((p) => p.group))];
+      const card = (p) => {
+        const photo = p.img
+          ? `<img class="person__photo" src="${p.img}" alt="${p.nome}" loading="lazy" width="132" height="132" />`
+          : `<div class="person__photo person__photo--empty" aria-hidden="true">${p.nome
+              .split(" ")
+              .map((w) => w[0])
+              .slice(0, 2)
+              .join("")}</div>`;
+        return `<article class="person">
+          ${photo}
+          <h3 class="person__name">${p.nome}</h3>
+          <p class="person__role">${p.ruolo}</p>
+        </article>`;
+      };
+
+      document.getElementById("organigramma-root").innerHTML = groups
+        .map((g) => {
+          const items = people.filter((p) => p.group === g);
+          return `<h3 class="group-label">${g}</h3>
+            <div class="people-grid people-grid--org">${items.map(card).join("")}</div>`;
+        })
+        .join("");
+    </script>
+  </body>
+</html>

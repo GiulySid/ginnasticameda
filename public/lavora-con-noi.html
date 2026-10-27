@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lavora con noi | ASD Ginnastica Meda</title>
+    <link rel="icon" href="images/logo/logo-50.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="site-header"></header>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Lavora con noi</h1>
+        <p>Opportunità per allenatori e coreografi.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container contact-grid reveal">
+        <div>
+          <div class="section__eyebrow">Candidatura</div>
+          <h2 class="section__title">Compila il modulo</h2>
+          <form class="form" action="mailto:info@ginnasticameda.it?subject=Candidatura%20Ginnastica%20Meda" method="post" enctype="text/plain">
+            <label>Nome<input name="nome" required /></label>
+            <label>Cognome<input name="cognome" required /></label>
+            <label>Email<input type="email" name="email" required /></label>
+            <label>Telefono<input name="telefono" type="tel" /></label>
+            <label>Posizione
+              <select name="posizione" required>
+                <option value="">Seleziona…</option>
+                <option>Allenatore - Corso Base</option>
+                <option>Allenatore - Avanzato (Silver)</option>
+                <option>Allenatore - Agonistica (Gold)</option>
+                <option>Coreografie - GAF</option>
+              </select>
+            </label>
+            <div>
+              <div style="font-size:0.92rem;color:var(--muted);margin-bottom:0.4rem">Giorni di disponibilità</div>
+              <div class="days">
+                <label><input type="checkbox" name="giorni" value="Lun" /> Lun</label>
+                <label><input type="checkbox" name="giorni" value="Mar" /> Mar</label>
+                <label><input type="checkbox" name="giorni" value="Mer" /> Mer</label>
+                <label><input type="checkbox" name="giorni" value="Gio" /> Gio</label>
+                <label><input type="checkbox" name="giorni" value="Ven" /> Ven</label>
+                <label><input type="checkbox" name="giorni" value="Sab" /> Sab</label>
+              </div>
+            </div>
+            <label>Messaggio<textarea name="messaggio" rows="4" placeholder="Presentati brevemente…"></textarea></label>
+            <button class="btn btn--navy" type="submit">Invia candidatura</button>
+          </form>
+        </div>
+        <div>
+          <div class="section__eyebrow">Posizioni aperte</div>
+          <h2 class="section__title">Unisciti allo staff</h2>
+          <p>
+            Se sei appassionato di ginnastica artistica e vuoi condividere la tua esperienza con giovani atleti,
+            Ginnastica Meda cerca allenatori qualificati e un coreografo.
+          </p>
+          <article class="job">
+            <h3>Allenatore - Corso Base</h3>
+            <p>Fascia 6-10 anni. Esperienza con giovani atleti e basi di ginnastica artistica.</p>
+          </article>
+          <article class="job">
+            <h3>Allenatore - Avanzato (Silver)</h3>
+            <p>Preparazione a competizioni Silver e programmi di allenamento avanzati.</p>
+          </article>
+          <article class="job">
+            <h3>Allenatore - Agonistica (Gold)</h3>
+            <p>Gestione atleti di alto livello e carico di lavoro strategico.</p>
+          </article>
+          <article class="job">
+            <h3>Coreografie - GAF</h3>
+            <p>Coreografie per esibizioni e gare, in collaborazione con lo staff tecnico.</p>
+          </article>
+          <p style="color:var(--muted);font-size:0.95rem">
+            Si richiede disponibilità ad accompagnare gli atleti alle gare e agli eventi societari.
+          </p>
+        </div>
+      </div>
+    </section>
+    <footer class="site-footer" id="site-footer"></footer>
+    <script src="js/site.js"></script>
+  </body>
+</html>
