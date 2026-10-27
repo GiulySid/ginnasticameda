@@ -318,11 +318,6 @@ p {
   border-radius: var(--radius);
   border: 1px solid transparent;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
 }
 
 .btn--primary {
@@ -1142,13 +1137,222 @@ p {
 
 .reveal {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(22px);
+  transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
 }
 
 .reveal.is-visible {
   opacity: 1;
   transform: none;
+}
+
+.reveal-stagger > .is-reveal-child {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-stagger.is-visible > .is-reveal-child {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-stagger.is-visible > .is-reveal-child:nth-child(1) { transition-delay: 0.04s; }
+.reveal-stagger.is-visible > .is-reveal-child:nth-child(2) { transition-delay: 0.08s; }
+.reveal-stagger.is-visible > .is-reveal-child:nth-child(3) { transition-delay: 0.12s; }
+.reveal-stagger.is-visible > .is-reveal-child:nth-child(4) { transition-delay: 0.16s; }
+.reveal-stagger.is-visible > .is-reveal-child:nth-child(5) { transition-delay: 0.2s; }
+.reveal-stagger.is-visible > .is-reveal-child:nth-child(6) { transition-delay: 0.24s; }
+.reveal-stagger.is-visible > .is-reveal-child:nth-child(7) { transition-delay: 0.28s; }
+.reveal-stagger.is-visible > .is-reveal-child:nth-child(8) { transition-delay: 0.32s; }
+.reveal-stagger.is-visible > .is-reveal-child:nth-child(9) { transition-delay: 0.36s; }
+.reveal-stagger.is-visible > .is-reveal-child:nth-child(10) { transition-delay: 0.4s; }
+.reveal-stagger.is-visible > .is-reveal-child:nth-child(n + 11) { transition-delay: 0.44s; }
+
+/* Page enter / leave */
+body {
+  opacity: 0;
+  animation: pageIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+body.is-leaving {
+  animation: pageOut 0.28s ease forwards;
+  pointer-events: none;
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pageOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.page-hero .container {
+  animation: fadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
+}
+
+.site-header {
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.site-header.is-scrolled {
+  box-shadow: 0 10px 28px rgba(6, 21, 54, 0.28);
+}
+
+.brand__logo {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.brand:hover .brand__logo {
+  transform: rotate(-6deg) scale(1.06);
+}
+
+.nav a,
+.nav summary {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav > a::after,
+.nav-group > summary::after {
+  content: "";
+  position: absolute;
+  left: 0.55rem;
+  right: 0.55rem;
+  bottom: 0.2rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--green), #fff, var(--red));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s ease;
+  opacity: 0.9;
+}
+
+.nav > a:hover::after,
+.nav > a[aria-current="page"]::after,
+.nav-group[open] > summary::after,
+.nav-group > summary:hover::after {
+  transform: scaleX(1);
+}
+
+.btn {
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), background 0.2s ease, color 0.2s ease, box-shadow 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(6, 21, 54, 0.18);
+}
+
+.media-frame img {
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.media-frame:hover img {
+  transform: scale(1.05);
+}
+
+.person {
+  transition: transform 0.3s ease;
+}
+
+.person:hover {
+  transform: translateY(-4px);
+}
+
+.person__photo {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+}
+
+.person:hover .person__photo {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 3px var(--navy), 0 14px 28px rgba(6, 21, 54, 0.22);
+}
+
+.staff-name,
+.athlete,
+.org-item,
+.event-card,
+.course-card,
+.pub-year,
+.albo-entry,
+.doc-list a,
+.event {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, border-color 0.25s ease;
+}
+
+.staff-name:hover,
+.athlete:hover,
+.org-item:hover,
+.event-card:hover,
+.course-card:hover,
+.pub-year:hover,
+.albo-entry:hover,
+.doc-list a:hover,
+.event:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(6, 21, 54, 0.12);
+}
+
+.site-footer a {
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body,
+  body.is-leaving,
+  .hero__media img,
+  .hero picture,
+  .hero h1,
+  .hero__lead,
+  .hero__actions,
+  .page-hero .container,
+  .sponsors__track {
+    animation: none !important;
+  }
+
+  body {
+    opacity: 1;
+  }
+
+  .reveal,
+  .reveal-stagger > .is-reveal-child,
+  .btn,
+  .person,
+  .person__photo,
+  .media-frame img,
+  .staff-name,
+  .athlete,
+  .org-item,
+  .event-card,
+  .course-card,
+  .pub-year,
+  .albo-entry,
+  .doc-list a,
+  .event,
+  .brand__logo,
+  .nav > a::after,
+  .nav-group > summary::after {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
 }
 
 @media (max-width: 980px) {

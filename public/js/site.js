@@ -149,8 +149,38 @@
     sponsors.innerHTML = html + html;
   }
 
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Header shadow on scroll
+  if (header && !reduceMotion) {
+    const onScroll = () => {
+      header.classList.toggle("is-scrolled", window.scrollY > 12);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
+
+  // Auto-reveal common content blocks if not already marked
+  document
+    .querySelectorAll(
+      ".section > .container:not(.reveal), .quote-band > .container, .sponsors > .container, .albo-block, .pub-year"
+    )
+    .forEach((el) => {
+      if (!el.classList.contains("reveal")) el.classList.add("reveal");
+    });
+
+  // Stagger children in grids/lists
+  document
+    .querySelectorAll(
+      ".people-grid, .athlete-list, .event-list, .course-grid, .staff-names, .org-grid, .admin-grid"
+    )
+    .forEach((grid) => {
+      grid.classList.add("reveal", "reveal-stagger");
+      [...grid.children].forEach((child) => child.classList.add("is-reveal-child"));
+    });
+
   const reveals = document.querySelectorAll(".reveal");
-  if (reveals.length && "IntersectionObserver" in window) {
+  if (reveals.length && "IntersectionObserver" in window && !reduceMotion) {
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -160,10 +190,35 @@
           }
         });
       },
-      { threshold: 0.12 }
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
     );
     reveals.forEach((el) => io.observe(el));
   } else {
     reveals.forEach((el) => el.classList.add("is-visible"));
+  }
+
+  // Soft page transition on internal links
+  if (!reduceMotion) {
+    document.addEventListener("click", (event) => {
+      const link = event.target.closest("a[href]");
+      if (!link) return;
+      const href = link.getAttribute("href");
+      if (!href || href.startsWith("#") || href.startsWith("mailto:") || href.startsWith("tel:")) return;
+      if (link.target === "_blank" || link.hasAttribute("download")) return;
+      let url;
+      try {
+        url = new URL(href, window.location.href);
+      } catch {
+        return;
+      }
+      if (url.origin !== window.location.origin) return;
+      if (url.pathname === window.location.pathname && url.hash) return;
+
+      event.preventDefault();
+      document.body.classList.add("is-leaving");
+      window.setTimeout(() => {
+        window.location.href = url.href;
+      }, 220);
+    });
   }
 })();
