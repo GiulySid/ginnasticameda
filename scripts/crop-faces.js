@@ -79,18 +79,24 @@ function cropOne(src, dest, file) {
   side = Math.min(side, w, h);
 
   let x = Math.round(ex * w - side / 2);
-  // Eyes sit ~35% from top of the square (classic portrait)
-  let y = Math.round(ey * h - side * 0.35);
+  // Eyes ~48% from top so the face sits central / slightly lower in the crop
+  let y = Math.round(ey * h - side * 0.48);
   x = Math.max(0, Math.min(w - side, x));
   y = Math.max(0, Math.min(h - side, y));
 
-  const tmp = dest + ".__tmp__";
-  execFileSync(
-    "ffmpeg",
-    ["-y", "-i", src, "-vf", `crop=${side}:${side}:${x}:${y},scale=480:480:flags=lanczos`, "-q:v", "2", tmp],
-    { stdio: "ignore" }
-  );
-  fs.renameSync(tmp, dest);
+  const tmp = path.join(path.dirname(dest), `._crop_${path.basename(dest)}`);
+  try {
+    execFileSync(
+      "ffmpeg",
+      ["-y", "-i", src, "-vf", `crop=${side}:${side}:${x}:${y},scale=480:480:flags=lanczos`, "-q:v", "2", tmp],
+      { stdio: ["ignore", "ignore", "pipe"] }
+    );
+    fs.renameSync(tmp, dest);
+  } catch (err) {
+    if (fs.existsSync(tmp)) fs.unlinkSync(tmp);
+    console.error("FAIL", file, err.stderr?.toString?.().slice(-400) || err.message);
+    return "fail";
+  }
   return `${side}@${x},${y}`;
 }
 

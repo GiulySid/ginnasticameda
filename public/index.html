@@ -2,10 +2,10 @@
 <html lang="it">
   <head>
     <meta charset="utf-8" />
+    <link rel="icon" href="images/logo/logo50.png" type="image/png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>A.S.D. Ginnastica Meda</title>
     <meta name="description" content="Associazione sportiva dilettantistica di ginnastica artistica a Meda dal 1973. Centro Federale di Alta Specializzazione." />
-    <link rel="icon" href="images/logo/logo-50.png" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
@@ -17,10 +17,9 @@
       </div>
       <div class="hero__shade"></div>
       <div class="hero__content">
-        <picture>
-          <source srcset="images/logo/logo-original.avif" type="image/avif" />
-          <img class="hero__logo" src="images/logo/logo-50.png" alt="Logo Ginnastica Meda 50 anni" width="298" height="278" />
-        </picture>
+        <div class="hero__logo-wrap">
+          <img class="hero__logo" src="images/logo/logo50.png" alt="Logo Ginnastica Meda 50 anni" width="298" height="278" />
+        </div>
         <h1>Ginnastica <em>Meda</em></h1>
         <p class="hero__lead">
           Dal 1973 formiamo ginnasti e ginnaste capaci di confrontarsi ai massimi livelli, dalla base all'agonismo internazionale.
@@ -68,16 +67,13 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="container split split--reverse reveal">
-        <div>
-          <div class="section__eyebrow">Lavora con noi</div>
-          <h2 class="section__title">Vuoi entrare nello staff?</h2>
+    <section class="fixed-band" aria-label="Lavora con noi">
+      <div class="fixed-band__content">
+        <div class="container reveal">
+          <div class="section__eyebrow" style="color:rgba(255,255,255,0.75)">Lavora con noi</div>
+          <h2 class="section__title" style="color:#fff">Vuoi entrare nello staff?</h2>
           <p>Cerchiamo allenatori e un coreografo per corsi base, Silver e Gold. Compila il modulo e raccontaci la tua disponibilità.</p>
-          <a class="btn btn--navy" href="lavora-con-noi.html">Candidati</a>
-        </div>
-        <div class="media-frame">
-          <img src="images/hero/hero-6.JPG" alt="Allenamento ginnastica artistica" />
+          <a class="btn btn--primary" href="lavora-con-noi.html">Candidati</a>
         </div>
       </div>
     </section>

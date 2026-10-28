@@ -36,14 +36,13 @@
     return pages
       .map((item) => {
         if (item.children) {
-          const open = item.children.some((c) => isCurrent(c.href)) ? " open" : "";
           const links = item.children
             .map(
               (c) =>
                 `<a href="${c.href}"${isCurrent(c.href) ? ' aria-current="page"' : ""}>${c.label}</a>`
             )
             .join("");
-          return `<details class="nav-group"${open}><summary>${item.label}</summary><div class="nav__panel">${links}</div></details>`;
+          return `<details class="nav-group"><summary>${item.label}</summary><div class="nav__panel">${links}</div></details>`;
         }
         return `<a href="${item.href}"${isCurrent(item.href) ? ' aria-current="page"' : ""}>${item.label}</a>`;
       })
@@ -66,18 +65,41 @@
 
     const toggle = header.querySelector(".nav-toggle");
     const nav = header.querySelector("#site-nav");
+    const closeNavMenus = () => {
+      nav?.classList.remove("is-open");
+      toggle?.setAttribute("aria-expanded", "false");
+      header.querySelectorAll("details.nav-group").forEach((d) => {
+        d.removeAttribute("open");
+        d.open = false;
+      });
+    };
+
+    // Esposto per la transizione pagina
+    header._closeNavMenus = closeNavMenus;
+
     toggle?.addEventListener("click", () => {
       const open = nav.classList.toggle("is-open");
       toggle.setAttribute("aria-expanded", String(open));
     });
 
-    header.querySelectorAll("details").forEach((d) => {
+    header.querySelectorAll("details.nav-group").forEach((d) => {
       d.addEventListener("toggle", () => {
         if (d.open) {
-          header.querySelectorAll("details").forEach((other) => {
-            if (other !== d) other.open = false;
+          header.querySelectorAll("details.nav-group").forEach((other) => {
+            if (other !== d) {
+              other.removeAttribute("open");
+              other.open = false;
+            }
           });
         }
+      });
+    });
+
+    // Chiudi sottomenu/menu al click sulla voce, senza bloccare la navigazione.
+    // Non chiudere su pointerdown: chiudere <details> prima del click annulla il click.
+    nav?.querySelectorAll("a[href]").forEach((link) => {
+      link.addEventListener("click", () => {
+        window.setTimeout(() => closeNavMenus(), 0);
       });
     });
   }
@@ -214,11 +236,14 @@
       if (url.origin !== window.location.origin) return;
       if (url.pathname === window.location.pathname && url.hash) return;
 
+      // Chiudi sempre i menu prima di lasciare la pagina
+      header?._closeNavMenus?.();
+
       event.preventDefault();
       document.body.classList.add("is-leaving");
       window.setTimeout(() => {
         window.location.href = url.href;
-      }, 220);
+      }, 180);
     });
   }
 })();
